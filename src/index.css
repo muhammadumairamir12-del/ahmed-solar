@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+:root {
+  /* Brand — match official AT Solar logo */
+  --navy: #0a1628;
+  --navy-deep: #050b14;
+  --navy-mid: #1a3a5c;
+  --solar-blue: #2e6ea8;
+  --gold: #f5a623;
+  --gold-soft: #ffc04d;
+  --gold-deep: #e08900;
+  --ink: #0f172a;
+  --paper: #f3f6fa;
+  --muted: #64748b;
+  --motion-fast: 0.32s;
+  --motion-base: 0.5s;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --font-display: "Montserrat", "Outfit", sans-serif;
+  --font-body: "DM Sans", "Figtree", sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Noto Sans Arabic", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: #1e293b;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  min-height: 100svh;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.font-urdu {
+  font-family: var(--font-urdu);
+  line-height: 1.9;
+}
+
+.prose-at p {
+  margin: 0 0 1rem;
+  color: #475569;
+  line-height: 1.75;
+}
+
+.page-eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.025em;
+}
+
+img {
+  max-width: 100%;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes gold-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up var(--motion-base) var(--motion-ease) both;
+}
+
+.animate-fade-in {
+  animation: fade-in var(--motion-fast) var(--motion-ease) both;
+}
+
+.animate-drawer-in {
+  animation: drawer-in 0.28s var(--motion-ease) both;
+}
+
+.hero-kenburns {
+  animation: hero-kenburns 18s var(--motion-ease) infinite alternate;
+}
+
+.gold-band {
+  background: linear-gradient(
+    90deg,
+    var(--gold-deep),
+    var(--gold),
+    var(--gold-soft),
+    var(--gold),
+    var(--gold-deep)
+  );
+  background-size: 200% 100%;
+  animation: gold-shine 6s linear infinite;
+}
+
+.safe-pb {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 45%, var(--navy-mid) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-kenburns,
+  .gold-band {
+    animation: none;
+  }
+}
